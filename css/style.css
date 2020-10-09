@@ -1,184 +1,173 @@
-html {
-  scroll-behavior: smooth;
+html{
+    scroll-behavior: smooth;
 }
 
-body {
+body{
   background-color: #737373;
   font-size: 18px;
   margin: 0;
   padding: 0;
 }
 
-h1 {
+h1{
   font-size: 50px;
   line-height: 1;
   padding: 50px 0;
   text-align: center;
 }
 
-h2 {
+h2{
   font-size: 32px;
   line-height: 1.5;
 }
 
-nav li {
-  display: inline;
-  padding-right: 20px;
+nav li{
+  display:inline;
+  padding-right:20px;
 }
 
-nav a {
+nav a{
   color: black;
   font-weight: bold;
   text-decoration: none; 
 }
 
-nav a:hover {
+nav a:hover{
   text-decoration: underline;
 }
 
-.skip a {
+.skip a{
   background: white;
   left: 0;
   padding: 6px;
   -webkit-transition: top 1s ease-out;
   transition: top 1s ease-out;
   z-index: 1;
-  position: relative;   /*Your code here - position relative to the parent */
-  top: -40px;   /*Your code here - place 40px higher */
+  position: absolute;
+  top: -40px;
 }
 
-/*Your code here*/
-/*Add the selector and rule to move the skip 
-link to the exact top of the page.*/
-.skip a:focus {
+.skip a:focus{
   position: absolute;
   top: 0px;
-  margin: auto;
 }
 
-
-/*Your code here*/
-
-*:focus {
-  border: 2px solid black; /*Add the selector and code to put a 2px black 
-  border around all elements in focus.*/
+*:focus{
+  border: 2px solid #000000;
 }
 
-
-footer {
+footer{
   background-color: black;
   color: white;
-  grid-column: 1 / -1;  /* spans all columns (negative idx from last col)*/
-  grid-row: 7 / -1;   /* swapped 'auto' with -1 */
   padding-top: 30px;
   text-align: center;
+  grid-column: 1 / -1;
+  grid-row: 7 / auto;
 }
 
-nav {
-  background-color: #ddd;
-  padding: 20px 0; 
+nav{
+  background-color: #dddddd;
+  padding: 25px 0;
   text-align: left;
-
-  /*Your code here*/
-  grid-column: 1 / -1; /* spans all columns */
-  grid-row: 1 / span 1; /* begins on 1st row spans 1 row */
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 7;
 }
 
-header {
+header{
   background-attachment: fixed; /* Parallax effect */     
   background-position: center;  /* Parallax effect */
   background-repeat: no-repeat; /* Parallax effect */
   background-size: cover;       /* Parallax effect */
   color: white;
   height: 400px;                /* Parallax effect */
-
-  /* Your code here */
-  background-image: url('../images/header.jpg'); /* set background-image to header.jpg in the images folder */
-  grid-column: 1 / -1; /* span all columns */
-  grid-row: 2 / span 1; /* begins on 2nd row spans 1 row */
+  background-image: url('../images/header.jpg');
+  background-color: #000000;
+  grid-column: 1 / -1;  /*Can you explain what this does?*/
+  grid-row: 1 / auto;   /*Can you rewrite it?*/
 }
 
-header p {
+header p{
   color: white;
   font-size: 24px;
   padding: 0 100px;
   text-align: center;
 }
 
-.container {
-  display: grid; /* container class uses grid */
-  grid-template-columns: 100px 400px 100px; /* three columns from spec */
-  grid-template-rows: 30px auto auto auto auto auto 100px; /* seven rows from spec */
-  grid-row-gap: 15px; /* gap 15px between rows */
+.container{
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: repeat(5,auto);
+  grid-row-gap: 15px;
 }
 
-.about, .method, .clients, .contact {
-  grid-column: 2 / span 1; /* begins in 2nd column spans 1 row */
+.about, .method, .clients, .contact{
+  grid-column: 2 / span 1;
 }
 
-.about-image, .method-image, .clients-image, .contact-image {
-  grid-column: 1 / -1; /* spans all columns */
-  max-height: 700px; /* max height 700px */
-  overflow: hidden; /* hide content outside of cells */
+.about-image, .method-image, .clients-image, .contact-image{
+  grid-column: 1 / -1;
+  max-height: 700px;
+  overflow: hidden;
 }
 
-/* begin at 3, traverse respectively - each spans 1 */
-.about, .about-image {
-  grid-row: 3 / span 1; 
+.about, .about-image{
+  grid-row: 2 / span 1;
 }
 
-.method, .method-image {
+.method, .method-image{
+  grid-row: 3 / span 1;
+}
+
+.clients, .clients-image{
   grid-row: 4 / span 1;
 }
 
-.clients, .clients-image {
+.contact, .contact-image{
   grid-row: 5 / span 1;
 }
 
-.contact, .contact-image {
-  grid-row: 6 / span 1;
-}
-
-.text-block {
-  background-color: rgba(255, 255, 255, .8);
+.text-block{
+background-color: rgba(255, 255, 255, .8);
   border: 10px solid black;
   padding: 30px;
-  margin: 0 auto; /* align the content in the center */
+  align-self: center;
 }
 
 
-/* desktop view */
-@media all and (min-width: 800px) {
-
-  .container {
-    display: grid; /* container class uses grid */
-    grid-template-columns: 50px auto 500px auto 50px; /* five columns from spec */
-    grid-template-rows: 70px 400px 400px 400px 400px 400px 100px; /* seven rows from spec */
-  }
-
-  nav {
-    background-color: #ddd;
-    text-align: right;
-    padding: 35px 0px;
+@media all and (min-width: 800px){
+  nav{
+    padding: 30px 0px;
+    background-color: #dddddd;
     align-self: center;
+    text-align: right;
   }
 
-  .about, .clients, .method-image, .contact-image {
-    grid-column: 3 / span 2; /* begins in 3rd column spans 2 columns */
-  }
+  .container{
+    display: grid;
+    grid-template-columns: 50px auto 500px auto 50px;
+    grid-template-rows: 400px 400px 400px 400px 400px;
+    }
 
-  .about-image, .clients-image, .method, .contact {
-    grid-column: 2 / span 2; /* begins in 2nd column spans 2 columns */
-  }
-}  /*End the media query*/
+  .about, .clients, .method-image, .contact-image{
+    grid-column: 3 / span 2;
+    }
 
-@media screen and (prefers-reduced-motion: reduce) {
-html {
-    scroll-behavior: auto; /* Removes scroll animation */
+  .about-image, .clients-image, .method, .contact{
+    grid-column: 2 / span 2;
+  }
 }
 
-.skip a {
-  -webkit-transition: none;
-  transition: none;
-}
+@media screen and (prefers-reduced-motion: reduce){
+  html{
+      scroll-behavior: auto; /* Removes scroll animation */
+  }
+
+  .skip a{
+    -webkit-transition: none; /* sets to default setting */
+    transition: none;        /* sets to default setting */
+   }
+
+  header{
+    background-attachment: initial;
+  }
 }
